@@ -1,10 +1,15 @@
 "use client";
-
+import { useState } from "react";
 import Link from "next/link";
 
 export default function Menu() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
   return (
-    <nav className="bg-[#bb0005] sticky top-0 w-full z-50 shadow-md py-4">
+    <nav className="bg-[#bb0005] sticky top-0 w-full z-50 shadow-md py-4 px-4">
       <div className="container mx-auto flex justify-between items-center px-4">
         {/* Logo Section */}
         <h1 className="text-2xl font-bold">
@@ -26,10 +31,10 @@ export default function Menu() {
           </Link>
         </h1>
 
-        {/* Navigation Links */}
-        <ul className="hidden md:flex space-x-6 text-white font-semibold text-xl">
+        {/* Desktop Navigation Links */}
+        <ul className="hidden md:flex space-x-6 text-white font-semibold text-md">
           <li>
-            <Link href="/news" className="hover:underline ">
+            <Link href="/news" className="hover:underline">
               News
             </Link>
           </li>
@@ -67,7 +72,10 @@ export default function Menu() {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <button className="text-white focus:outline-none">
+          <button
+            onClick={toggleMobileMenu}
+            className="text-white focus:outline-none"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -85,6 +93,47 @@ export default function Menu() {
           </button>
         </div>
       </div>
+
+      {/* Mobile Navigation Links */}
+      {isMobileMenuOpen && (
+        <ul className="md:hidden bg-[#bb0005] text-white font-semibold text-md space-y-4 py-4">
+          <li>
+            <Link href="/news" className="hover:underline">
+              News
+            </Link>
+          </li>
+          <li>
+            <Link href="/entertainment" className="hover:underline">
+              General Games
+            </Link>
+          </li>
+          <li>
+            <Link href="/dota2" className="hover:underline">
+              Dota 2
+            </Link>
+          </li>
+          <li>
+            <Link href="/cs2" className="hover:underline">
+              CS2
+            </Link>
+          </li>
+          <li>
+            <Link href="/lol" className="hover:underline">
+              League of Legends
+            </Link>
+          </li>
+          <li>
+            <Link href="/valorant" className="hover:underline">
+              Valorant
+            </Link>
+          </li>
+          <li>
+            <Link href="/pubg-mobile" className="hover:underline">
+              PUBG Mobile
+            </Link>
+          </li>
+        </ul>
+      )}
     </nav>
   );
 }

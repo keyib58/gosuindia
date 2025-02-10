@@ -1,21 +1,23 @@
-// app/[category]/page.tsx
 import { fetchRSSFeed } from "../utils/fetchRSS";
 import FeaturePost from "../components/FeaturePosts";
 import PostGrid from "../components/PostGrid";
 
+// Define the Props type with the correct structure
 type Props = {
-  params: {
+  params: Promise<{
     category: string;
-  };
+  }>;
 };
 
+// Export the dynamic page component
 export default async function CategoryPage({ params }: Props) {
-  const { category } = params;
-  
-  // 并行获取普通文章和置顶文章
+  // Await the params object before destructuring
+  const { category } = await params;
+
+  // Fetch posts and featured posts in parallel
   const [posts, featuredPosts] = await Promise.all([
     fetchRSSFeed(`https://www.gosugamers.net/${category}/articles/rss`),
-    fetchRSSFeed(`https://www.gosugamers.net/${category}/articles/rss?IsTop=True`)
+    fetchRSSFeed(`https://www.gosugamers.net/${category}/articles/rss?IsTop=True`),
   ]);
 
   return (
@@ -27,10 +29,7 @@ export default async function CategoryPage({ params }: Props) {
       </header>
 
       <main className="container mx-auto py-8">
-        <PostGrid 
-          posts={posts} 
-          title={`${category.toUpperCase()} Articles`} 
-        />
+        <PostGrid posts={posts} title={`${category.toUpperCase()} Articles`} />
       </main>
     </div>
   );

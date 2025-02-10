@@ -11,7 +11,7 @@ const PostCard = ({ post }: PostCardProps) => {
       href={post.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="block bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300"
+      className="block bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 "
     >
       <div
         className="h-48 w-full bg-cover bg-center"
