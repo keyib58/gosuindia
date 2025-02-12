@@ -17,7 +17,7 @@ const PostCard = ({ post }: PostCardProps) => {
         className="h-48 w-full bg-cover bg-center"
         style={{ backgroundImage: `url(${post.thumbnail})` }}
       ></div>
-      <div className="p-4">
+      <div className="p-4 text-black">
         <h3 className="text-lg font-bold mb-2">{post.title}</h3>
         <p className="text-gray-600 text-sm">{post.description}</p>
       </div>

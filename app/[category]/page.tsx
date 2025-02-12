@@ -14,10 +14,16 @@ export default async function CategoryPage({ params }: Props) {
   // Await the params object before destructuring
   const { category } = await params;
 
+  // Determine the base URL based on the category
+  const baseURL =
+    category.toLowerCase() === "anime"
+      ? "https://www.gosu.com/anime/articles/rss"
+      : `https://www.gosugamers.net/${category}/articles/rss`;
+
   // Fetch posts and featured posts in parallel
   const [posts, featuredPosts] = await Promise.all([
-    fetchRSSFeed(`https://www.gosugamers.net/${category}/articles/rss`),
-    fetchRSSFeed(`https://www.gosugamers.net/${category}/articles/rss?IsTop=True`),
+    fetchRSSFeed(baseURL),
+    fetchRSSFeed(`${baseURL}?IsTop=true`),
   ]);
 
   return (

@@ -68,6 +68,11 @@ export default function Menu() {
               PUBG Mobile
             </Link>
           </li>
+          <li>
+            <Link href="/anime" className="hover:underline">
+            Anime
+            </Link>
+          </li>
         </ul>
 
         {/* Mobile Menu Button */}
