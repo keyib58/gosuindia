@@ -34,7 +34,7 @@ export default function Menu() {
         {/* Desktop Navigation Links */}
         <ul className="hidden md:flex space-x-6 text-white font-semibold text-md">
           <li>
-            <Link href="/news" className="hover:underline">
+            <Link href="/" className="hover:underline">
               News
             </Link>
           </li>
