@@ -7,8 +7,8 @@ const parseCategory = (category: string): string => {
 };
 
 const adjustThumbnailWidth = (url: string): string => {
-  // Replace "webp?w=280" with "?w=640"
-  return url.replace(/webp\?w=\d+/, "?w=640");
+  // Ensure the URL ends with "?w=640"
+  return url.replace(/\?w=\d+/, "?w=640");
 };
 
 export const fetchRSSFeed = async (url: string): Promise<Post[]> => {
