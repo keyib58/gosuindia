@@ -49,7 +49,7 @@ export default function Menu() {
             </Link>
           </li>
           <li>
-            <Link href="/cs2" className="hover:underline">
+            <Link href="/counterstrike" className="hover:underline">
               CS2
             </Link>
           </li>
