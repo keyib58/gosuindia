@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import "./globals.css";
 import Menu from "@/app/components/Menu";
 import Footer from "@/app/components/Footer";
@@ -66,19 +66,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname(); // Get the current path
-  const currentMeta = metaInfo[pathname as keyof typeof metaInfo] || metaInfo["/"]; // Default to homepage metadata
+  const currentMeta =
+    metaInfo[pathname as keyof typeof metaInfo] || metaInfo["/"]; // Default to homepage metadata
 
   return (
     <html lang="en">
       <head>
         <title>{currentMeta.title}</title>
         <meta name="description" content={currentMeta.description} />
-        <meta property="og:image" content={currentMeta.image} /> {/* Open Graph image */}
-        <meta property="og:title" content={currentMeta.title} /> {/* Open Graph title */}
-        <meta property="og:description" content={currentMeta.description} /> {/* Open Graph description */}
-        <link rel="icon" href="/favicon.png" /> {/* Favicon */}
+        <meta property="og:image" content={currentMeta.image} />
+        <meta property="og:image:width" content="1200" /> {/* Image width */}
+        <meta property="og:image:height" content="630" /> {/* Image height */}
+        <meta property="og:title" content={currentMeta.title} />
+        <meta property="og:description" content={currentMeta.description} />
+        <link rel="icon" href="/favicon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
+
       <body className="flex flex-col min-h-screen">
         <Menu />
         <main
