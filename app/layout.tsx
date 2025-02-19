@@ -74,15 +74,26 @@ export default function RootLayout({
       <head>
         <title>{currentMeta.title}</title>
         <meta name="description" content={currentMeta.description} />
+
+        {/* Open Graph Meta Tags */}
         <meta property="og:title" content={currentMeta.title} />
         <meta property="og:description" content={currentMeta.description} />
         <meta property="og:image" content={currentMeta.image} />
+        <meta property="og:image:secure_url" content={currentMeta.image} />
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:type" content="website" />
+        <meta property="og:image:alt" content="Esports" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@GosuGamers" />
+        <meta name="twitter:title" content={currentMeta.title} />
+        <meta name="twitter:description" content={currentMeta.description} />
+        <meta name="twitter:image" content={currentMeta.image} />
+        <meta name="twitter:image:alt" content="Esports" />
+
         <link rel="icon" href="/favicon.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className="flex flex-col min-h-screen">
         <Menu />
