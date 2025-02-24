@@ -6,56 +6,48 @@ import { usePathname } from "next/navigation";
 
 const metaInfo = {
   "/": {
-    title: "GosuGamers - The world's premier esports portal | GosuGamers",
-    description:
-      "We bring you the latest Esports editorial & data coverage, match schedules, and world rankings.",
+    title: "Esports News And Latest Game Updates",
+    description: "Latest esports news, games update and more.",
     image: "/previewThumb.jpg", // Add preview image for the homepage
   },
   "/entertainment": {
-    title: "Latest Esports News, Gaming News and Anime Updates | GosuGamers",
+    title: "Online Games News And Updates",
     description:
-      "Stay updated with the latest game releases, events, and breaking news from the world of PC and mobile games, plus exclusive anime news and content, all in one place at GosuGamers.",
+      "Get the latest news and updates on online games, including new releases, patches, events, and more.",
     image: "/previewThumb.jpg", // Add preview image for entertainment
   },
   "/dota2": {
-    title:
-      "Dota 2 | Latest News, Matches, Rankings, Tournaments and Leaderboards | GosuGamers",
+    title: "Dota 2 News And Updates",
     description:
-      "Explore the world of Dota 2 with the latest news, upcoming tournaments, live score, comprehensive rankings and Leaderboards. Immerse yourself in the Dota 2 community on GosuGamers.",
+      "Stay updated with the latest news, patch notes and more on Dota 2.",
     image: "/previewThumb.jpg", // Add preview image for Dota 2
   },
   "/counterstrike": {
-    title:
-      "CS2 | Latest News, Matches, Rankings, Tournaments and Leaderboards | GosuGamers",
-    description:
-      "Explore the world of CS2 with the latest news, upcoming tournaments, live score, comprehensive rankings and Leaderboards. Immerse yourself in the CS2 community on GosuGamers.",
+    title: "Counter Strike 2 News And Updates",
+    description: "Stay updated with the latest news, updates and more on CS2.",
     image: "/previewThumb.jpg", // Add preview image for CS2
   },
   "/lol": {
-    title:
-      "LoL | Latest News, Matches, Rankings, Tournaments and Leaderboards | GosuGamers",
-    description:
-      "Explore the world of LoL with the latest news, upcoming tournaments, live score, comprehensive rankings and Leaderboards. Immerse yourself in the LoL community on GosuGamers.",
+    title: "League of Legends News And Updates",
+    description: "Stay updated with the latest news, updates and more on LoL.",
     image: "/previewThumb.jpg", // Add preview image for LoL
   },
   "/valorant": {
-    title:
-      "Valorant | Latest News, Matches, Rankings, Tournaments and Leaderboards | GosuGamers",
+    title: "Valorant News And Updates",
     description:
-      "Explore the world of Valorant with the latest news, upcoming tournaments, live score, comprehensive rankings and Leaderboards. Immerse yourself in the Valorant community on GosuGamers.",
+      "Stay updated with the latest news, updates and more on Valorant.",
     image: "/previewThumb.jpg", // Add preview image for Valorant
   },
   "/pubg-mobile": {
-    title:
-      "PUBG Mobile | Latest News, Matches, Rankings, Tournaments and Leaderboards | GosuGamers",
+    title: "Pubg Mobile News And Updates",
     description:
-      "Explore the world of PUBG Mobile with the latest news, upcoming tournaments, live score, comprehensive rankings and Leaderboards. Immerse yourself in the PUBG Mobile community on GosuGamers.",
+      "Stay updated with the latest news, updates and more on Pubg Mobile.",
     image: "/previewThumb.jpg", // Add preview image for PUBG Mobile
   },
   "/anime": {
-    title: "Gosu Anime - Anime News, Manga News, and VTubers Updates",
+    title: "Latest Anime News And Updates",
     description:
-      "Immerse yourself in a diverse collection of Anime, Manga and Vtubers with Gosu Anime. Discover the latest manga updates and anime news, series, recommendations and vtubers updates only on Gosu Anime.",
+      "Stay updated with the latest news, updates and more on Anime.",
     image: "/previewThumb.jpg", // Add preview image for Anime
   },
 };
@@ -92,6 +84,16 @@ export default function RootLayout({
         <meta name="twitter:description" content={currentMeta.description} />
         <meta name="twitter:image" content={currentMeta.image} />
         <meta name="twitter:image:alt" content="Esports" />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-PF31GJLLDJ"
+        ></script>
+        <script>
+          {`window.dataLayer = window.dataLayer || [];
+  function gtag(){window.dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PF31GJLLDJ');`}
+        </script>
 
         <link rel="icon" href="/favicon.png" />
       </head>
