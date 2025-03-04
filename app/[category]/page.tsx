@@ -3,19 +3,20 @@ import FeaturePost from "../components/FeaturePosts";
 import PostGrid from "../components/PostGrid";
 
 type Props = {
-  params: { category: string };
+  params: Promise<{ category: string }>; // Updated to match PageProps constraint
 };
 
 export default async function CategoryPage({ params }: Props) {
-  const { category } = params;
+  const { category } = await params; // Await the Promise
 
-  // 统一处理分类 URL
-  const baseURL = category.toLowerCase() === "anime"
-    ? "https://www.gosu.com/anime/articles/rss"
-    : `https://www.gosugamers.net/${category}/articles/rss`;
+  // Unified handling of category URL
+  const baseURL =
+    category.toLowerCase() === "anime"
+      ? "https://www.gosu.com/anime/articles/rss"
+      : `https://www.gosugamers.net/${category}/articles/rss`;
 
   try {
-    // 并行获取文章和推荐文章
+    // Parallel fetching of posts and featured posts
     const [posts, featuredPosts] = await Promise.all([
       fetchRSSFeed(baseURL),
       fetchRSSFeed(`${baseURL}?IsTop=true`),
