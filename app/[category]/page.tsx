@@ -58,7 +58,7 @@ export default async function CategoryPage({ params }: Props) {
           </header>
 
           <main className="container mx-auto py-8">
-            <PostGrid posts={fallbackPosts} title="Fallback Articles" />
+            <PostGrid posts={fallbackPosts} title="Latest Articles" />
           </main>
         </div>
       );
